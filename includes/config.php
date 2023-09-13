@@ -1,5 +1,5 @@
 <?php
-require_once "./interface/interface.php";
+require_once("./interface/interface.php");
 class DBConnection implements IDBConnection
 {
     private $connection;
@@ -15,7 +15,13 @@ class DBConnection implements IDBConnection
     }
 }
 
-$database = new DBConnection("localhost", "scanditest", "root", "");
+try {
+    $database = new DBConnection("localhost", "4315261_testtask", "root", "");
+    $db = $database->getConnection();
+    define("App_Name", "scanditest");
 
-$db = $database->getConnection();
-define("App_Name", "scanditest");
+    echo "Connected to the database!";
+} catch (PDOException $e) {
+
+    echo "Connection failed: " . $e->getMessage();
+}

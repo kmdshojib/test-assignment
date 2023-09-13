@@ -15,3 +15,8 @@ interface ConfigInterface
 
     public static function getCorePath();
 }
+
+interface IProduct
+{
+    public function getProducts();
+}

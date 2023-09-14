@@ -93,4 +93,21 @@ class Product implements IProduct
         return false;
     }
 
+    public function deleteProducts(array $ids): bool
+    {
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id IN (' . $placeholders . ')';
+        $stmt = $this->conn->prepare($query);
+
+        foreach ($ids as $key => $id) {
+            $ids[$key] = htmlspecialchars(strip_tags($id));
+            $stmt->bindParam(($key + 1), $ids[$key]);
+        }
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        printf("Error %s. \n", $stmt->error);
+        return false;
+    }
 }

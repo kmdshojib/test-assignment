@@ -21,6 +21,7 @@ interface IProduct
     public function getProducts(): mixed;
     public function getCategories(): mixed;
     public function postProduct(): mixed;
+    public function deleteProducts(array $ids): bool;
 }
 
 interface IGetProducts
@@ -33,4 +34,9 @@ interface IGetCategories
 {
     public function getCategories(): PDOStatement;
     public function fetchData(): array;
+}
+
+interface IDeleteProducts
+{
+    public function deleteProducts(mixed $data): array;
 }

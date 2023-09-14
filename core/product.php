@@ -21,7 +21,7 @@ class Product implements IProduct
         $this->conn = $db;
     }
 
-    public function getProducts()
+    public function getProducts(): mixed
     {
         $query = 'SELECT p.*
         FROM ' . $this->table . ' p
@@ -29,6 +29,18 @@ class Product implements IProduct
         ORDER BY p.id DESC';
 
         $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function getCategories(): mixed
+    {
+        $query = 'SELECT p.*
+        FROM ' . $this->table . ' p
+        LEFT JOIN categories c ON p.id = c.id 
+        ORDER BY p.id DESC';
+
+        $stmt = $this->conn->query($query);
         $stmt->execute();
         return $stmt;
     }

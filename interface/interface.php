@@ -18,10 +18,18 @@ interface ConfigInterface
 
 interface IProduct
 {
-    public function getProducts();
+    public function getProducts(): mixed;
+    public function getCategories(): mixed;
 }
 
 interface IGetProducts
 {
     public function getProducts(): PDOStatement;
+    public function fetchData(): array;
+}
+
+interface IGetCategories
+{
+    public function getCategories(): PDOStatement;
+    public function fetchData(): array;
 }

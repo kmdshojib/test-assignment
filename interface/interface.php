@@ -20,6 +20,7 @@ interface IProduct
 {
     public function getProducts(): mixed;
     public function getCategories(): mixed;
+    public function postProduct(): mixed;
 }
 
 interface IGetProducts

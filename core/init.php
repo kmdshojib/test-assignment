@@ -1,6 +1,6 @@
 <?php
 
-require_once "./interface/interface.php";
+require_once ("../interface/interface.php");
 
 class Config implements ConfigInterface
 {
@@ -11,7 +11,7 @@ class Config implements ConfigInterface
 
     public static function getSiteRoot()
     {
-        return self::getDs() . "xampp" . self::getDs() . "htdocs" . self::getDs() . "scadi-test";
+        return self::getDS() . 'wamp64' . self::getDS() . 'www' . self::getDS() . "scadi_test";
     }
 
     public static function getIncPath()
@@ -30,4 +30,5 @@ $siteRoot = Config::getSiteRoot();
 $incPath = Config::getIncPath();
 $corePath = Config::getCorePath();
 
-require_once $incPath . "/config.php";
+require_once $incPath . '/config.php';
+require_once $corePath . '/product.php';

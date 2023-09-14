@@ -20,3 +20,8 @@ interface IProduct
 {
     public function getProducts();
 }
+
+interface IGetProducts
+{
+    public function getProducts(): PDOStatement;
+}

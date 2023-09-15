@@ -33,7 +33,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, X-Requested-With');
 
-include_once('../core/init.php');
+include_once('.././core/init.php');
 
 $deleteRequest = new DeleteProduct($db);
 $data = json_decode(file_get_contents('php://input'));

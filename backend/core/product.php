@@ -1,5 +1,5 @@
 <?php
-require_once("../interface/interface.php");
+require_once(".././interface/interface.php");
 class Product implements IProduct
 {
     private $conn;

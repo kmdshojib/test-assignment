@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../interface/interface.php");
+require_once(".././interface/interface.php");
 
 class Config implements ConfigInterface
 {
@@ -11,7 +11,7 @@ class Config implements ConfigInterface
 
     public static function getSiteRoot()
     {
-        return self::getDS() . 'wamp64' . self::getDS() . 'www' . self::getDS() . "scadi_test";
+        return self::getDS() . 'wamp64' . self::getDS() . 'www' . self::getDS() . "scadi_test" . self::getDS() . "backend";
     }
 
     public static function getIncPath()

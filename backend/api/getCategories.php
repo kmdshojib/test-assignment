@@ -45,7 +45,7 @@ class GetCategories implements IGetCategories
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once('../core/init.php');
+include_once('.././core/init.php');
 
 $caegoryAPI = new GetCategories($db);
 $data = $caegoryAPI->fetchData();

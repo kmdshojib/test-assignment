@@ -59,7 +59,7 @@ class GetProduct implements IGetProducts
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-include_once("../core/init.php");
+include_once('.././core/init.php');
 if (isset($db) && $db instanceof PDO) {
 
     $productAPI = new GetProduct($db);

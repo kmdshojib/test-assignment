@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type, X-Requested-With');
 
-include_once('../core/init.php');
+include_once('.././core/init.php');
 
 $product = new Product($db);
 

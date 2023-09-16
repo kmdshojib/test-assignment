@@ -46,19 +46,20 @@ const AddProduct = () => {
                     <div className='form-container'>
                         <div className='input-container'>
                             <label className='input-label' htmlFor="sku">Sku:</label>
-                            <input className='form-input' type="text" name="sku" placeholder='#SKU' {...register("sku")} />
+                            <input className='form-input' type="text" name="sku" placeholder='#SKU' {...register("sku", { required: true })} />
                         </div>
+                        {errors.sku && <p className='text-danger'>Sku is required!</p>}
 
                         <div className='input-container'>
                             <label className='input-label' htmlFor="name">Name: </label>
-                            <input className='form-input' type="text" name="name" placeholder='#Name' {...register("name")} />
+                            <input className='form-input' type="text" name="name" placeholder='#Name' {...register("name", { required: true })} />
                         </div>
-
+                        {errors.name && <p className='text-danger'>Name is required!</p>}
                         <div className='input-container'>
                             <label className='input-label' htmlFor="price">Price:</label>
-                            <input className='form-input' type="number" name="price" placeholder='#Price' {...register("price")} />
+                            <input className='form-input' type="number" name="price" placeholder='#Price' {...register("price", { required: true })} />
                         </div>
-
+                        {errors.price && <p className='text-danger'>Price is required!</p>}
 
                         <Form.Select className='form-option' id="type" onChange={handleTypeChange} required>
                             <option value=""> --Type Switcher-- </option>
@@ -75,18 +76,24 @@ const AddProduct = () => {
 
                         {
                             type === "DVD" && (
-                                <div className='input-container'>
-                                    <label className='input-label' htmlFor='size'>Size(MB): </label>
-                                    <input className='form-input' type='number' name='size' placeholder='#Size' required {...register("size")} />
-                                </div>
+                                <>
+                                    <div className='input-container'>
+                                        <label className='input-label' htmlFor='size'>Size(MB): </label>
+                                        <input className='form-input' type='number' name='size' placeholder='#Size'  {...register("size", { required: true })} />
+                                    </div>
+                                    {errors.size && <p className='text-danger'>Size is required!</p>}
+                                </>
                             )
                         }
                         {
                             type === "Book" && (
-                                <div className='input-container'>
-                                    <label className='input-label' htmlFor='weight'>Weight(KG): </label>
-                                    <input className='form-input' type='number' name='weight' placeholder='#Weight' required {...register("weight")} />
-                                </div>
+                                <>
+                                    <div className='input-container'>
+                                        <label className='input-label' htmlFor='weight'>Weight(KG): </label>
+                                        <input className='form-input' type='number' name='weight' placeholder='#Weight'  {...register("weight", { required: true })} />
+                                    </div>
+                                    {errors.weight && <p className='text-danger'>Weight is required!</p>}
+                                </>
                             )
                         }
                         {
@@ -94,19 +101,20 @@ const AddProduct = () => {
                                 <div>
                                     <div className='input-container'>
                                         <label className='input-label' htmlFor='height'>Height(CM): </label>
-                                        <input className='form-input' id='height' type='number' name='height' placeholder='#Height' required {...register("height")} />
+                                        <input className='form-input' id='height' type='number' name='height' placeholder='#Height'  {...register("height", { required: true })} />
                                     </div>
-
+                                    {errors.height && <p className='text-danger'>Height is required!</p>}
                                     <div className='input-container'>
                                         <label className='input-label' htmlFor='width'>Width(CM): </label>
-                                        <input className='form-input' type='number' name='width' placeholder='#Width' required {...register("width")} />
+                                        <input className='form-input' type='number' name='width' placeholder='#Width'  {...register("width", { required: true })} />
                                     </div>
-
+                                    {errors.width && <p className='text-danger'>Width is required!</p>}
                                     <div className='input-container'>
                                         <label className='input-label' htmlFor='length'>Length(CM): </label>
-                                        <input className='form-input' type='number' name='length' placeholder='#Length' required {...register("length")} />
-
+                                        <input className='form-input' type='number' name='length' placeholder='#Length'  {...register("length", { required: true })} />
                                     </div>
+                                    {errors.length && <p className='text-danger'>Length is required!</p>}
+
                                 </div>
                             )
                         }

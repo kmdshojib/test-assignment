@@ -1,8 +1,13 @@
 import React from 'react'
-
-const Header = () => {
+import "../styles/heading.styles.scss"
+const Header = ({ title, children }) => {
     return (
-        <div>Header</div>
+        <div className='heading-container'>
+            <h4 className='card-title'>{title}</h4>
+            <div>
+                {children}
+            </div>
+        </div>
     )
 }
 

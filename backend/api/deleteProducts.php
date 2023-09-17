@@ -19,9 +19,11 @@ class DeleteProduct implements IDeleteProducts
             if ($this->product->deleteProducts($ids)) {
                 return array('message' => 'The products have been deleted successfully');
             } else {
+                // http_response_code(400);
                 return array('message' => 'Something went wrong');
             }
         } else {
+            // http_response_code(400);
             return array('message' => 'Invalid request. Please provide an array of valid product IDs.');
         }
     }

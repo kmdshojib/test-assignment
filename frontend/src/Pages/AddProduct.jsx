@@ -30,7 +30,7 @@ const AddProduct = () => {
         isSuccess && navigate("/")
     }, [isSuccess, navigate])
 
-    if (isLoading && categoryIsLoading) {
+    if (isLoading || categoryIsLoading) {
         return <div>Loading...</div>
     }
     if (isError) {

@@ -7,8 +7,10 @@ import { addProdduct, getCategories } from '../api/apiRequests';
 import Form from 'react-bootstrap/Form';
 import "../styles/addproduct.styles.scss"
 import Header from './../Components/Header';
+import useTitle from '../Hooks/useTitle';
 
 const AddProduct = () => {
+    useTitle("Poduct Add")
     const navigate = useNavigate();
     const [type, setType] = useState("");
     const { data, isLoading: categoryIsLoading } = useQuery({
@@ -43,7 +45,7 @@ const AddProduct = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Header title="Add Product">
+                <Header title="Product Add">
                     <button className='button rounded btn btn-light border border-dark me-3' type="submit">Submit</button>
                     <button onClick={() => navigate("/")} className='button rounded btn btn-danger'>Cancel</button>
                 </Header>

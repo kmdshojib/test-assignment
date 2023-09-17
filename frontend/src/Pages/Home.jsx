@@ -6,9 +6,11 @@ import ProductCard from '../Components/ProductCard'
 import "../styles/home.styles.scss"
 import Header from '../Components/Header'
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../Hooks/useTitle'
 
 
 const Home = () => {
+    useTitle("Poduct List")
     const navigate = useNavigate();
     const { data, isLoading, refetch } = useQuery({ queryKey: ["products"], queryFn: getProducts })
     const [ids, setIds] = useState([])

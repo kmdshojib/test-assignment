@@ -6,6 +6,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { addProdduct, getCategories } from '../api/apiRequests';
 import Form from 'react-bootstrap/Form';
 import "../styles/addproduct.styles.scss"
+import Header from './../Components/Header';
 
 const AddProduct = () => {
     const navigate = useNavigate();
@@ -41,8 +42,12 @@ const AddProduct = () => {
     };
     return (
         <div>
-            <div >
-                <form className='d-flex justify-content-center mt-3' onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <Header title="Add Product">
+                    <button className='button rounded btn btn-light border border-dark me-3' type="submit">Submit</button>
+                    <button onClick={() => navigate("/")} className='button rounded btn btn-danger'>Cancel</button>
+                </Header>
+                <div className='d-flex justify-content-center mt-3'>
                     <div className='form-container'>
                         <div className='input-container'>
                             <label className='input-label' htmlFor="sku">Sku:</label>
@@ -118,11 +123,9 @@ const AddProduct = () => {
                                 </div>
                             )
                         }
-
-                        <button className='button mt-3 rounded btn btn-light border border-dark' type="submit">Submit</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     )
 }

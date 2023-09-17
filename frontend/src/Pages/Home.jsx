@@ -58,8 +58,8 @@ const Home = () => {
                     <button
                         onClick={() => navigate("/addproduct")}
                         style={{ width: "100px" }}
-                        className='btn btn-light button border border-dark me-3'>Add</button>
-                    <button onClick={handleDelete} className='btn btn-danger button'>Mass Delete</button>
+                        className='btn btn-light button border border-dark me-3 rounded'>Add</button>
+                    <button onClick={handleDelete} className='btn btn-danger button rounded'>Mass Delete</button>
                 </div>
             </Header>
             {data?.data ?

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { addProdduct, getCategories } from '../api/apiRequests';
 import Form from 'react-bootstrap/Form';
-import "../styles/addproduct.scss"
+import "../styles/addproduct.styles.scss"
 
 const AddProduct = () => {
     const navigate = useNavigate();
@@ -48,7 +48,7 @@ const AddProduct = () => {
                             <label className='input-label' htmlFor="sku">Sku:</label>
                             <input className='form-input' type="text" name="sku" placeholder='#SKU' {...register("sku", { required: true })} />
                         </div>
-                        {errors.sku && <p className='text-danger'>Sku is required!</p>}
+                        {errors.sku && <span className='text-danger'>Sku is required!</span>}
 
                         <div className='input-container'>
                             <label className='input-label' htmlFor="name">Name: </label>

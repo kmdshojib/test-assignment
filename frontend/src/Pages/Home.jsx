@@ -78,13 +78,13 @@ const Home = () => {
                                 onCardClick={() => handleCardClick(index, item.id)}
                             >
                                 {
-                                    item.size && <div>Size:{item.size}MB</div>
+                                    item.size && <div><span className='fw-medium'>Size: </span>{item.size}MB</div>
                                 }
                                 {
-                                    item.weight && <div>Weight: {item.weight} KG</div>
+                                    item.weight && <div><span className='fw-medium'>Weight: </span> {item.weight} KG</div>
                                 }
                                 {
-                                    (item.height && item.width && item.length) && <div>Dimension: {item.width} × {item.height} × {item.length}</div>
+                                    (item.height && item.width && item.length) && <div><span className='fw-medium'>Dimension:  </span>{item.width} × {item.height} × {item.length}</div>
                                 }
                             </ProductCard>
                         ))

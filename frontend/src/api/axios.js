@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const axiosApi = axios.create({
-    baseURL: 'http://localhost/scadi_test/backend/api'
+    baseURL: 'http://scandi-test-assigment.atwebpages.com/backend/api'
 });

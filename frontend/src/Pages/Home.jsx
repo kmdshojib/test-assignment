@@ -14,8 +14,8 @@ const Home = () => {
     useTitle("Poduct List")
     const navigate = useNavigate();
     const { data, isLoading, refetch } = useQuery({ queryKey: ["products"], queryFn: getProducts })
-    const [ids, setIds] = useState([])
     const [checkedStates, setCheckedStates] = useState(data?.data ? Array.from({ length: data?.data.length }, () => false) : []);
+    const [ids, setIds] = useState([]);
 
     const mutation = useMutation((id) => deleteProduct(id))
     const { isLoading: isDeleting, isSuccess } = mutation
@@ -23,7 +23,7 @@ const Home = () => {
     useEffect(() => {
         if (isSuccess) {
             refetch()
-            setCheckedStates(false)
+            setCheckedStates([])
         }
     }, [isSuccess, refetch])
 
@@ -33,9 +33,9 @@ const Home = () => {
         setCheckedStates(updatedStates);
 
         if (updatedStates[index]) {
-            setIds(preValue => [...preValue, id]);
+            setIds(prevValue => [...prevValue, id]);
         } else {
-            setIds(preValue => preValue.filter(item => item !== id));
+            setIds(prevValue => prevValue.filter(item => item !== id));
         }
     };
 
@@ -46,7 +46,6 @@ const Home = () => {
             const data = {
                 ids: idArr
             };
-            console.log(data);
             mutation.mutate(data);
         }
     }

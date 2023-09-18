@@ -11,7 +11,7 @@ class DeleteProduct implements IDeleteProducts
         $this->db = $db;
         $this->product = new Product($db);
     }
-    public function deleteProducts(mixed $data): array
+    public function deleteProducts($data)
     {
         if (isset($data->ids) && is_array($data->ids)) {
             $ids = $data->ids;

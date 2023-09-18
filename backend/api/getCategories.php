@@ -11,7 +11,7 @@ class GetCategories implements IGetCategories
 
     public function getCategories(): PDOStatement
     {
-        $query = "SELECT P.* FROM categories p LEFT JOIN categories c ON p.id = c.id ORDER BY p.id DESC";
+        $query = "SELECT p.* FROM categories p LEFT JOIN categories c ON p.id = c.id ORDER BY p.id DESC";
         $stmt = $this->db->query($query);
         $stmt->execute();
         return $stmt;

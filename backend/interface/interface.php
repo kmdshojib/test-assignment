@@ -38,5 +38,5 @@ interface IGetCategories
 
 interface IDeleteProducts
 {
-    public function deleteProducts(mixed $data): array;
+    public function deleteProducts($data);
 }

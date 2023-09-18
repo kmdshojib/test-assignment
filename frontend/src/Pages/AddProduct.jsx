@@ -19,8 +19,7 @@ const AddProduct = () => {
         queryFn: getCategories
     })
     const mutation = useMutation(data => addProdduct(data));
-    const { isLoading, isError, status, isSuccess } = mutation;
-    console.log({ status, isSuccess })
+    const { isLoading, isError, isSuccess } = mutation;
     const {
         register,
         handleSubmit,

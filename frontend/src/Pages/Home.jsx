@@ -7,6 +7,7 @@ import "../styles/home.styles.scss"
 import Header from '../Components/Header'
 import { useNavigate } from 'react-router-dom';
 import useTitle from '../Hooks/useTitle'
+import Spinner from '../Components/Spinner'
 
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
     const [checkedStates, setCheckedStates] = useState(data?.data ? Array.from({ length: data?.data.length }, () => false) : []);
 
     const mutation = useMutation((id) => deleteProduct(id))
-    const { isLoading: isDeleting, isSuccess, isError } = mutation
+    const { isLoading: isDeleting, isSuccess } = mutation
 
     useEffect(() => {
         if (isSuccess) {
@@ -50,10 +51,14 @@ const Home = () => {
         }
     }
     if (isLoading || isDeleting) {
-        return <div>isLoading..</div>
+        return <>
+            <Header title="Product List"></Header>
+            <Spinner />
+        </>
     }
 
     return (
+
         <div>
             <Header title="Product List">
                 <div>

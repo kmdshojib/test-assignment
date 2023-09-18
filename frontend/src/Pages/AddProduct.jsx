@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import "../styles/addproduct.styles.scss"
 import Header from './../Components/Header';
 import useTitle from '../Hooks/useTitle';
+import Spinner from '../Components/Spinner';
 
 const AddProduct = () => {
     useTitle("Poduct Add")
@@ -34,7 +35,10 @@ const AddProduct = () => {
     }, [isSuccess, navigate])
 
     if (isLoading || categoryIsLoading) {
-        return <div>Loading...</div>
+        return <>
+        <Header title="Product Add"></Header>
+        <Spinner />
+    </>
     }
     if (isError) {
         toast.error("An error has occurred!");
